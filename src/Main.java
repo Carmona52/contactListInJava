@@ -11,8 +11,6 @@ public class Main {
         mainFrame.setSize(500, 500);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel.setLayout(new BorderLayout());
-
-        TextAreaFactory textAreaFactory = new CreateTextAreaFactory();
         LabelFactory labelFactory = new CreateLabelFactory();
 
         JLabel label = labelFactory.createLabel("Bienvenido a tu lista de contactos");
