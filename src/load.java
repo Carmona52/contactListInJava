@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +8,7 @@ import java.sql.SQLException;
 public class load {
     private static JFrame saveFrame;
 
-    public static void save(JFrame mainFrame) {
+    public static void save(JFrame mainFrame, DefaultTableModel tableModel) {
         String query = "INSERT INTO users (name, lastName, phone) VALUES (?, ?, ?)";
 
         saveFrame = new JFrame("Añadir Contacto");
@@ -63,7 +64,7 @@ public class load {
 
                 saveFrame.dispose();
                 mainFrame.setVisible(true);
-                Main.updateContacts();
+                Main.updateContacts(tableModel);
 
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(saveFrame, "Error al guardar: " + ex.getMessage());
@@ -73,7 +74,7 @@ public class load {
         });
     }
 
-    public static void update(JFrame mainFrame) {
+    public static void update(JFrame mainFrame, DefaultTableModel tableModel) {
         String query = "UPDATE users SET name=? WHERE id=?";
 
         saveFrame = new JFrame("Actualizar nombre Contacto");
@@ -122,7 +123,7 @@ public class load {
 
                 saveFrame.dispose();
                 mainFrame.setVisible(true);
-                Main.updateContacts();
+                Main.updateContacts(tableModel);
 
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(saveFrame, "Error al actualizar: " + ex.getMessage());

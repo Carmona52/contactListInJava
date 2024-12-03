@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +8,7 @@ import java.sql.SQLException;
 public class delete {
     private static JFrame deleteFrame;
 
-    public static void errase(JFrame mainFrame) {
+    public static void errase(JFrame mainFrame, DefaultTableModel tableModel) {
         String query = "DELETE FROM users WHERE id = ?";
 
         deleteFrame = new JFrame("Eliminar Contacto");
@@ -49,7 +50,7 @@ public class delete {
 
                 deleteFrame.dispose();
                 mainFrame.setVisible(true);
-                Main.updateContacts();
+                Main.updateContacts(tableModel);
 
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(deleteFrame, "Error al eliminar: " + ex.getMessage());
