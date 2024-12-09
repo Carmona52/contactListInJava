@@ -39,7 +39,6 @@ public class Main {
     }
 
     public static void updateContacts(DefaultTableModel tableModel) {
-        ButtonFactory buttonFactory = new CreateButtonFactory();
         List<Persona> personaList = read.executeRead();
         consContacts = new Object[personaList.size()][4];
         for (int i = 0; i < personaList.size(); i++) {
@@ -47,9 +46,8 @@ public class Main {
             consContacts[i][0] = persona.getNombre();
             consContacts[i][1] = persona.getApellido();
             consContacts[i][2] = persona.getTelefono();
-            consContacts[i][3] = buttonFactory.createButton("Actualizar");
         }
-        tableModel.setDataVector(consContacts, new Object[]{"Nombre", "Apellido", "Telefono", "Actualizar"});
+        tableModel.setDataVector(consContacts, new Object[]{"Nombre", "Apellido", "Telefono"});
     }
 
     private static JPanel getButtonPanel(DefaultTableModel tableModel) {
