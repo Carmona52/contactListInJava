@@ -38,7 +38,7 @@ public class load {
         panel.add(lastNameArea);
         panel.add(phoneLabel);
         panel.add(phoneArea);
-        panel.add(new JLabel()); // Placeholder for alignment
+        panel.add(new JLabel());
         panel.add(saveButton);
 
         saveFrame.add(panel);
@@ -99,7 +99,7 @@ public class load {
         panel.add(idContactArea);
         panel.add(newNameLabel);
         panel.add(newNameArea);
-        panel.add(new JLabel()); // Placeholder for alignment
+        panel.add(new JLabel());
         panel.add(updateButton);
 
         saveFrame.add(panel);
