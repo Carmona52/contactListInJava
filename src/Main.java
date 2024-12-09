@@ -10,6 +10,7 @@ public class Main {
             createAndShowGUI();
     }
 
+
     private static void createAndShowGUI() {
         JFrame mainFrame = new JFrame("Lista de Contactos");
         mainFrame.setSize(500, 500);
@@ -25,6 +26,7 @@ public class Main {
         String[] columnNames = {"Nombre", "Apellido", "Telefono", "Actualizar"};
         DefaultTableModel tableModel = new DefaultTableModel(consContacts, columnNames);
         JTable table = new JTable(tableModel);
+        table.setDefaultEditor(Object.class, null);
         table.setFillsViewportHeight(true);
         JScrollPane scrollPane = new JScrollPane(table);
         panel.add(scrollPane, BorderLayout.CENTER);
